@@ -3,31 +3,38 @@
   "name": "Petersen Graph",
   "notation": ["P", "KG(5,2)"],
   "type": "graph",
-  "definition": "The Petersen graph is a 10-vertex, 15-edge, 3-regular graph with high symmetry and nontrivial structural properties.",
+  "definition": "The Petersen graph is a 10-vertex, 15-edge, 3-regular graph with unusually rich symmetry and many counterexample properties. It is small enough to draw by hand but structured enough to test deep ideas in graph theory.",
   "defining_equations": [
     {
       "latex": "P = KG(5,2)",
-      "explanation": "KG(5,2) is the Kneser graph where vertices are 2-element subsets of a 5-element set and edges connect disjoint subsets."
+      "explanation": "P is the Petersen graph and KG(5,2) is the Kneser graph whose vertices are the 2-element subsets of a 5-element set. Two vertices are joined by an edge exactly when the corresponding subsets are disjoint."
     },
     {
-      "latex": "A_{ij} = 1 \\text{ if vertices } i \\text{ and } j \\text{ are adjacent}",
-      "explanation": "A_ij is an adjacency matrix entry. It equals 1 when two vertices are connected by an edge and 0 otherwise."
+      "latex": "|V(P)| = 10, \\quad |E(P)| = 15, \\quad \\deg(v)=3",
+      "explanation": "V(P) is the vertex set, E(P) is the edge set, and deg(v) is the degree of a vertex v. These equalities say that the Petersen graph has 10 vertices, 15 edges, and every vertex touches exactly 3 edges."
+    },
+    {
+      "latex": "A_{ij} = 1 \\text{ if } i \\sim j, \\quad A_{ij}=0 \\text{ otherwise}",
+      "explanation": "A_ij is an entry of the adjacency matrix. The notation i sim j means that vertices i and j are adjacent, so the matrix records the full edge structure of the graph."
     }
   ],
   "visuals": [
     {
       "type": "graph_drawing",
-      "description": "The standard Petersen graph drawing uses an outer pentagon, an inner star, and five connecting spokes. Each vertex has degree 3, which makes the regularity visible.",
+      "description": "The standard drawing shows an outer pentagon, an inner star, and five spokes joining corresponding outer and inner vertices. This layout makes the 3-regular structure visible because every vertex has two neighbors in a pentagon or star pattern and one spoke neighbor.",
       "image_url": "",
-      "caption": "Standard drawing of the Petersen graph.",
-      "query": ["Petersen graph outer pentagon inner star labeled clean", "Petersen graph 10 vertices symmetric diagram"]
+      "caption": "Standard drawing of the Petersen graph with outer pentagon, inner star, and spokes.",
+      "query": [
+        "Petersen graph outer pentagon inner star labeled clean",
+        "Petersen graph 10 vertices symmetric diagram"
+      ]
     }
   ],
-  "origin_history": "The Petersen graph was introduced in 1898 by Julius Petersen and became a central example in graph theory due to its counterintuitive properties and role as a counterexample.",
-  "importance": "The Petersen graph is a canonical counterexample used to test graph theory results. It is fundamental in studying connectivity, coloring, regularity, and structure. It is also used in network design, graph algorithm validation, and graph neural network benchmarking.",
-  "research_trends": "The Petersen graph is widely used in graph neural network research to test model expressivity and the limits of message-passing architectures. It is also important in spectral graph theory, where eigenvalues and invariants are studied for graph embeddings and machine learning applications.",
-  "intuition": "The Petersen graph is a small but complex graph that behaves unexpectedly, making it ideal for testing graph theory concepts.",
-  "minimal_example": "The Petersen graph has 10 vertices, 15 edges, and each vertex has degree 3.",
+  "origin_history": "The graph is named after Julius Petersen, who introduced it in 1898 while studying regular graphs and factorization questions. It became famous because it is visually simple yet resists several naive expectations about cycles, colorings, and decompositions.",
+  "importance": "The Petersen graph is one of the most important small graphs in modern graph theory. It is used as a test object for conjectures because it often provides the smallest or cleanest counterexample to plausible statements about regular graphs.\n\nIt is central in discussions of Hamiltonian cycles, edge coloring, snarks, graph minors, and symmetry. Because its automorphism group is large and its construction as a Kneser graph is compact, it also connects combinatorics, algebraic graph theory, and computational graph libraries.\n\nIn applied settings, the Petersen graph is useful as a compact benchmark for graph algorithms and graph neural networks. Its high symmetry helps reveal whether a method is detecting genuine structure or only memorizing local patterns.",
+  "research_trends": "The Petersen graph continues to appear in research on graph neural network expressivity, especially in tests of whether message passing architectures can distinguish non-isomorphic but locally similar structures.\n\nIt is also used in spectral graph theory and algebraic graph theory, where eigenvalues, automorphisms, and graph invariants are studied as compact examples of broader phenomena. In computational graph theory, it remains a standard sanity check for graph generation, coloring, matching, and isomorphism routines.",
+  "intuition": "The Petersen graph feels like a small puzzle with too much symmetry. It looks orderly, but it blocks simple routes such as Hamiltonian cycles and forces many graph theory definitions to be stated carefully.",
+  "minimal_example": "One model uses the 2-element subsets of {1, 2, 3, 4, 5} as vertices. The vertex {1, 2} is connected to {3, 4}, {3, 5}, and {4, 5}, because those are exactly the 2-element subsets disjoint from {1, 2}.",
   "code_snippet": {
     "language": "python",
     "code": "vertices = list(range(10))\nedges = [(0,1),(1,2),(2,3),(3,4),(4,0),(5,7),(7,9),(9,6),(6,8),(8,5),(0,5),(1,6),(2,7),(3,8),(4,9)]\ndegrees = {v: 0 for v in vertices}\nfor a, b in edges:\n    degrees[a] += 1\n    degrees[b] += 1\nprint(len(vertices))\nprint(len(edges))\nprint(degrees)"
@@ -38,18 +45,61 @@
     { "to": "Snark", "type": "related_to" },
     { "to": "Graph Neural Networks", "type": "used_in" }
   ],
-  "variants": ["Generalized Petersen graphs", "Kneser graphs", "Cubic graphs", "Snarks"],
-  "core_properties": ["10 vertices", "15 edges", "3-regular", "Non-Hamiltonian", "Girth 5", "Diameter 2"],
+  "variants": [
+    "Generalized Petersen graphs",
+    "Kneser graphs",
+    "Cubic graphs",
+    "Snarks",
+    "Cayley graph representations"
+  ],
+  "core_properties": [
+    "10 vertices",
+    "15 edges",
+    "3-regular",
+    "Non-Hamiltonian",
+    "Girth 5",
+    "Diameter 2",
+    "Vertex-transitive"
+  ],
   "level": "Intermediate",
   "tags": ["graph theory", "Petersen graph", "Kneser graph", "regular graph", "GNN", "spectral graph"],
   "citations": [
-    { "type": "web", "icon": "web", "title": "Petersen Graph, Wolfram MathWorld", "url": "https://mathworld.wolfram.com/PetersenGraph.html" },
-    { "type": "web", "icon": "web", "title": "Petersen Graph, Wikipedia", "url": "https://en.wikipedia.org/wiki/Petersen_graph" },
-    { "type": "book", "icon": "book", "title": "Graph Theory by Reinhard Diestel" }
+    {
+      "type": "web",
+      "icon": "web",
+      "title": "Petersen Graph, Wolfram MathWorld",
+      "url": "https://mathworld.wolfram.com/PetersenGraph.html"
+    },
+    {
+      "type": "web",
+      "icon": "web",
+      "title": "Petersen Graph, Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Petersen_graph"
+    },
+    {
+      "type": "book",
+      "icon": "book",
+      "title": "Graph Theory by Reinhard Diestel"
+    }
   ],
   "resources": [
-    { "type": "video", "icon": "video", "title": "Graph theory introduction", "url": "https://www.youtube.com/watch?v=09_LlHjoEiY" },
-    { "type": "paper", "icon": "paper", "title": "Spectral graph theory notes", "url": "https://arxiv.org/abs/1211.0053" },
-    { "type": "code", "icon": "code", "title": "NetworkX GitHub repository", "url": "https://github.com/networkx/networkx" }
+    {
+      "type": "video",
+      "icon": "video",
+      "title": "Graph theory introduction",
+      "url": "https://www.youtube.com/watch?v=09_LlHjoEiY"
+    },
+    {
+      "type": "paper",
+      "icon": "paper",
+      "title": "Spectral graph theory notes",
+      "url": "https://arxiv.org/abs/1211.0053"
+    },
+    {
+      "type": "code",
+      "icon": "code",
+      "title": "NetworkX GitHub repository",
+      "url": "https://github.com/networkx/networkx"
+    }
   ]
 }

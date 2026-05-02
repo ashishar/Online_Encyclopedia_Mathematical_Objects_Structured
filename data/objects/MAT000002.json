@@ -3,31 +3,38 @@
   "name": "Fourier Matrix",
   "notation": ["F_n"],
   "type": "matrix",
-  "definition": "The Fourier matrix is a complex-valued matrix whose entries are powers of roots of unity and which represents the discrete Fourier transform.",
+  "definition": "The Fourier matrix is a complex-valued matrix built from roots of unity. It represents the discrete Fourier transform as a linear map, turning a finite signal into its frequency components.",
   "defining_equations": [
     {
       "latex": "F_{jk} = e^{2\\pi i \\frac{jk}{n}}",
-      "explanation": "F_jk is the entry in row j and column k. The symbol i is the imaginary unit, n is the matrix size, and the exponential term represents phase on the unit circle."
+      "explanation": "F_jk is the entry in row j and column k. The symbol i is the imaginary unit, n is the matrix size, and the exponential term is a point on the unit circle whose angle depends on the product jk."
+    },
+    {
+      "latex": "\\omega_n = e^{2\\pi i/n}, \\quad F_{jk}=\\omega_n^{jk}",
+      "explanation": "omega_n is a primitive nth root of unity. This form shows that every entry of the Fourier matrix is a power of one basic circular phase step."
     },
     {
       "latex": "\\frac{1}{\\sqrt{n}}F_n \\text{ is unitary}",
-      "explanation": "When scaled by 1 divided by the square root of n, the Fourier matrix preserves inner products and energy."
+      "explanation": "The factor 1 divided by square root of n normalizes the matrix. After this scaling, the Fourier matrix preserves inner products and signal energy."
     }
   ],
   "visuals": [
     {
       "type": "phase_heatmap",
-      "description": "The Fourier matrix can be visualized as a heatmap where each cell represents the phase angle of a complex number on the unit circle. The repeating color patterns reveal frequency structure.",
+      "description": "A Fourier matrix can be visualized as a grid of phases. Each cell corresponds to a complex number on the unit circle, and color represents the phase angle. The repeated diagonal and checker patterns reveal how the matrix organizes frequency interactions.",
       "image_url": "",
       "caption": "Phase heatmap representation of a Fourier matrix.",
-      "query": ["Fourier matrix complex phase heatmap colorful visualization", "DFT matrix phase grid complex numbers"]
+      "query": [
+        "Fourier matrix complex phase heatmap colorful visualization",
+        "DFT matrix phase grid complex numbers"
+      ]
     }
   ],
-  "origin_history": "The Fourier matrix originates from Fourier analysis, developed from Joseph Fourier's work on representing functions using sinusoidal components. These ideas were later discretized into matrix form for computation.",
-  "importance": "The Fourier matrix provides a bridge between algebra and frequency analysis. It enables signals to be decomposed into frequency components, making analysis, compression, and reconstruction efficient. It is central to FFT algorithms, image and audio processing, wireless communication, quantum computing, and modern AI methods based on spectral representations.",
-  "research_trends": "Modern research uses Fourier matrices and Fourier representations in Fourier neural operators, which solve partial differential equations efficiently using frequency-domain computation. Another active direction is spectral deep learning, where models operate in the frequency domain to capture global patterns and long-range dependencies in structured data.",
-  "intuition": "The Fourier matrix acts like a frequency lens. It reveals which frequencies are present in a discrete signal.",
-  "minimal_example": "For n = 2, the Fourier matrix becomes [[1, 1], [1, -1]], which separates a two-point signal into average and difference components.",
+  "origin_history": "The Fourier matrix comes from Fourier analysis, which began with Joseph Fourier's study of heat flow and representation of functions by trigonometric components. In the 20th century, these continuous ideas were discretized for computation, signal processing, and numerical analysis.",
+  "importance": "The Fourier matrix connects linear algebra, complex numbers, group theory, and signal processing. It turns convolution into multiplication and exposes the frequency structure hidden inside finite data.\n\nIt is central to the discrete Fourier transform, fast Fourier transform algorithms, image compression, audio analysis, wireless communication, numerical partial differential equations, and quantum computing. The normalized Fourier matrix is also a standard example of a unitary matrix with highly structured entries.\n\nFrom an algebraic viewpoint, it diagonalizes circulant matrices and reflects the character table of a finite cyclic group. This makes it a bridge between cyclic symmetry and computation.",
+  "research_trends": "Fourier matrices and Fourier representations are active in scientific machine learning. Fourier neural operators use frequency-domain layers to learn solution operators for partial differential equations, especially when long-range structure matters.\n\nSpectral deep learning also uses Fourier methods to capture global patterns that local architectures may miss. In quantum computing, Fourier matrices appear in the quantum Fourier transform, which is a key primitive in algorithms for period finding and phase estimation.",
+  "intuition": "The Fourier matrix acts like a frequency lens. Multiplying by it asks how much of each circular wave is present in a finite signal.",
+  "minimal_example": "For n = 2, the Fourier matrix is [[1, 1], [1, -1]]. Applied to a two-point signal, it separates the average component from the difference component.",
   "code_snippet": {
     "language": "python",
     "code": "import cmath\nimport math\n\nn = 4\nF = [[cmath.exp(2j * math.pi * j * k / n) for k in range(n)] for j in range(n)]\nfor row in F:\n    print([complex(round(z.real, 2), round(z.imag, 2)) for z in row])"
@@ -39,18 +46,60 @@
     { "to": "Fast Fourier Transform", "type": "computed_by" },
     { "to": "Spectral Machine Learning", "type": "used_in" }
   ],
-  "variants": ["Discrete Fourier Transform", "Fast Fourier Transform", "Continuous Fourier Transform", "Quantum Fourier Transform"],
-  "core_properties": ["Complex-valued", "Periodic structure", "Unitary when normalized", "Built from roots of unity"],
+  "variants": [
+    "Discrete Fourier Transform",
+    "Fast Fourier Transform",
+    "Continuous Fourier Transform",
+    "Quantum Fourier Transform",
+    "Number theoretic transform"
+  ],
+  "core_properties": [
+    "Complex-valued",
+    "Periodic structure",
+    "Unitary when normalized",
+    "Built from roots of unity",
+    "Diagonalizes circulant matrices",
+    "Represents cyclic group characters"
+  ],
   "level": "Intermediate to advanced",
   "tags": ["linear algebra", "Fourier analysis", "signal processing", "spectral AI", "quantum computing"],
   "citations": [
-    { "type": "web", "icon": "web", "title": "Fourier Matrix, Wolfram MathWorld", "url": "https://mathworld.wolfram.com/FourierMatrix.html" },
-    { "type": "web", "icon": "web", "title": "DFT Matrix, Wikipedia", "url": "https://en.wikipedia.org/wiki/DFT_matrix" },
-    { "type": "book", "icon": "book", "title": "Signals and Systems by Oppenheim and Schafer" }
+    {
+      "type": "web",
+      "icon": "web",
+      "title": "Fourier Matrix, Wolfram MathWorld",
+      "url": "https://mathworld.wolfram.com/FourierMatrix.html"
+    },
+    {
+      "type": "web",
+      "icon": "web",
+      "title": "DFT Matrix, Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/DFT_matrix"
+    },
+    {
+      "type": "book",
+      "icon": "book",
+      "title": "Signals and Systems by Oppenheim and Schafer"
+    }
   ],
   "resources": [
-    { "type": "video", "icon": "video", "title": "3Blue1Brown Fourier Transform", "url": "https://www.youtube.com/watch?v=spUNpyF58BY" },
-    { "type": "paper", "icon": "paper", "title": "Fourier Neural Operator", "url": "https://arxiv.org/abs/2010.08895" },
-    { "type": "code", "icon": "code", "title": "NumPy GitHub repository", "url": "https://github.com/numpy/numpy" }
+    {
+      "type": "video",
+      "icon": "video",
+      "title": "3Blue1Brown Fourier Transform",
+      "url": "https://www.youtube.com/watch?v=spUNpyF58BY"
+    },
+    {
+      "type": "paper",
+      "icon": "paper",
+      "title": "Fourier Neural Operator",
+      "url": "https://arxiv.org/abs/2010.08895"
+    },
+    {
+      "type": "code",
+      "icon": "code",
+      "title": "NumPy GitHub repository",
+      "url": "https://github.com/numpy/numpy"
+    }
   ]
 }

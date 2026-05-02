@@ -29,28 +29,22 @@ export function ObjectPage({ object }: { object: OEMOObject }) {
         <div className="grid gap-8 px-6 py-7">
           <TextBlock body={object.definition} />
 
-          <section>
-            <SectionTitle>Defining Equations</SectionTitle>
-            <div className="mt-4 grid gap-4">
-              {object.defining_equations.map((equation) => (
-                <div key={equation.latex} className="rounded-lg border border-line bg-paper p-4">
-                  <div className="overflow-x-auto rounded-md bg-white p-4">
-                    <BlockMath math={equation.latex} />
-                  </div>
-                  <p className="mt-3 leading-7 text-muted">{equation.explanation}</p>
+          <div className="grid gap-4">
+            {object.defining_equations.map((equation) => (
+              <div key={equation.latex} className="rounded-lg border border-line bg-paper p-4">
+                <div className="overflow-x-auto rounded-md bg-white p-4">
+                  <BlockMath math={equation.latex} />
                 </div>
-              ))}
-            </div>
-          </section>
+                <p className="mt-3 leading-7 text-muted">{equation.explanation}</p>
+              </div>
+            ))}
+          </div>
 
-          <section>
-            <SectionTitle>Visual Explanation</SectionTitle>
-            <div className="mt-4 grid gap-4">
-              {object.visuals.map((visual) => (
-                <VisualCard key={`${visual.type}-${visual.caption}`} visual={visual} />
-              ))}
-            </div>
-          </section>
+          <div className="grid gap-4">
+            {object.visuals.map((visual) => (
+              <VisualCard key={`${visual.type}-${visual.caption}`} visual={visual} />
+            ))}
+          </div>
 
           <TextBlock body={object.origin_history} />
           <TextBlock body={object.importance} />
@@ -58,17 +52,14 @@ export function ObjectPage({ object }: { object: OEMOObject }) {
           <TextBlock body={object.intuition} />
           <TextBlock body={object.minimal_example} />
 
-          <section>
-            <SectionTitle>Code Snippet</SectionTitle>
-            <div className="mt-4 overflow-hidden rounded-lg border border-line">
-              <div className="bg-paper px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-muted">
-                {object.code_snippet.language}
-              </div>
-              <pre className="overflow-x-auto bg-ink p-5 text-sm leading-6 text-white">
-                <code>{object.code_snippet.code}</code>
-              </pre>
+          <div className="overflow-hidden rounded-lg border border-line">
+            <div className="bg-paper px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-muted">
+              {object.code_snippet.language}
             </div>
-          </section>
+            <pre className="overflow-x-auto bg-ink p-5 text-sm leading-6 text-white">
+              <code>{object.code_snippet.code}</code>
+            </pre>
+          </div>
 
           <section>
             <SectionTitle>Connections</SectionTitle>
@@ -82,8 +73,8 @@ export function ObjectPage({ object }: { object: OEMOObject }) {
             </div>
           </section>
 
-          <ListSection title="Variants and Generalizations" items={object.variants} />
-          <ListSection title="Core Properties" items={object.core_properties} />
+          <PillList items={object.variants} />
+          <PillList items={object.core_properties} />
           <LinkSection title="Citations" items={object.citations} />
           <LinkSection title="Resources" items={object.resources} />
         </div>
@@ -134,18 +125,17 @@ function VisualCard({ visual }: { visual: OEMOVisual }) {
   );
 }
 
-function ListSection({ title, items }: { title: string; items: string[] }) {
+function PillList({ items }: { items: string[] }) {
   return (
-    <section>
-      <SectionTitle>{title}</SectionTitle>
-      <ul className="mt-4 grid gap-2 md:grid-cols-2">
+    <div>
+      <ul className="grid gap-2 md:grid-cols-2">
         {items.map((item) => (
           <li key={item} className="rounded-md border border-line bg-paper px-3 py-2 text-sm font-semibold text-muted">
             {item}
           </li>
         ))}
       </ul>
-    </section>
+    </div>
   );
 }
 
