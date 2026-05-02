@@ -1,0 +1,60 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mathematical object structure map</title>
+  <desc id="desc">A network diagram linking groups, graphs, matrices, functions, algorithms, probability, optimization, quantum objects, and machine learning objects.</desc>
+  <rect width="1200" height="720" fill="#F6F7F1"/>
+  <path d="M0 90H1200M0 180H1200M0 270H1200M0 360H1200M0 450H1200M0 540H1200M0 630H1200M150 0V720M300 0V720M450 0V720M600 0V720M750 0V720M900 0V720M1050 0V720" stroke="#D8DFD5" stroke-width="1"/>
+  <g stroke="#146F6B" stroke-width="4" stroke-linecap="round" opacity="0.75">
+    <path d="M250 350L430 190L620 280L805 170L955 310"/>
+    <path d="M250 350L430 515L620 430L805 545L955 310"/>
+    <path d="M430 190L430 515"/>
+    <path d="M620 280L620 430"/>
+    <path d="M805 170L805 545"/>
+    <path d="M430 190L805 545"/>
+    <path d="M430 515L805 170"/>
+  </g>
+  <g>
+    <circle cx="250" cy="350" r="82" fill="#17211F"/>
+    <text x="250" y="340" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">Groups</text>
+    <text x="250" y="374" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" fill="#D8EDE9">symmetry</text>
+  </g>
+  <g>
+    <circle cx="430" cy="190" r="74" fill="#315FB8"/>
+    <text x="430" y="182" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#FFFFFF">Graphs</text>
+    <text x="430" y="214" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#E6EEFF">relations</text>
+  </g>
+  <g>
+    <circle cx="620" cy="280" r="78" fill="#A95F17"/>
+    <text x="620" y="272" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#FFFFFF">Matrices</text>
+    <text x="620" y="304" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#FFF1DF">linear maps</text>
+  </g>
+  <g>
+    <circle cx="805" cy="170" r="78" fill="#9B3F3B"/>
+    <text x="805" y="162" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#FFFFFF">Functions</text>
+    <text x="805" y="194" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#FFE4E0">analysis</text>
+  </g>
+  <g>
+    <circle cx="955" cy="310" r="86" fill="#146F6B"/>
+    <text x="955" y="302" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#FFFFFF">Algorithms</text>
+    <text x="955" y="334" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#D8EDE9">computation</text>
+  </g>
+  <g>
+    <circle cx="430" cy="515" r="78" fill="#6F4AB8"/>
+    <text x="430" y="507" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">Probability</text>
+    <text x="430" y="539" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#F0E9FF">uncertainty</text>
+  </g>
+  <g>
+    <circle cx="620" cy="430" r="78" fill="#3D6B35"/>
+    <text x="620" y="422" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">Optimization</text>
+    <text x="620" y="454" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#E5F2DF">constraints</text>
+  </g>
+  <g>
+    <circle cx="805" cy="545" r="78" fill="#263E73"/>
+    <text x="805" y="537" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">Quantum</text>
+    <text x="805" y="569" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#E6EEFF">states</text>
+  </g>
+  <g>
+    <rect x="82" y="82" width="270" height="72" rx="8" fill="#FFFFFF" stroke="#D8DFD5" stroke-width="2"/>
+    <text x="110" y="114" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#17211F">OEMO structure map</text>
+    <text x="110" y="140" font-family="Inter, Arial, sans-serif" font-size="15" fill="#5F6F68">objects linked by invariants and use</text>
+  </g>
+</svg>
