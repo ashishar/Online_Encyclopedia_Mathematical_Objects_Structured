@@ -18,7 +18,7 @@
     {
       "type": "cayley_graph",
       "description": "The Cayley graph of a cyclic group shows its elements arranged in a circle. Each directed edge corresponds to applying the generator, so moving along edges cycles through all elements and returns to the starting point.",
-      "image_url": "",
+      "image_url": "/visuals/cyclic-group-c5.svg",
       "caption": "Cayley graph of a cyclic group, showing cyclic structure.",
       "query": [
         "C5 Cayley graph labeled cycle directed",

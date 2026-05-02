@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ObjectCard } from "@/components/object-card";
 import { SearchBox } from "@/components/search-box";
 import { getObjects } from "@/lib/objects";
@@ -27,13 +26,12 @@ export default async function HomePage() {
         </div>
 
         <figure className="rounded-lg border border-line bg-white p-3 shadow-panel">
-          <Image
-            src="/structure-map.svg"
+          <img
+            src="/Online_Encyclopedia_Mathematical_Objects_Structured/structure-map.svg"
             alt="Network diagram connecting major mathematical object families"
             width={1400}
             height={900}
             className="aspect-[14/9] h-auto w-full rounded-md object-contain"
-            priority
           />
           <figcaption className="mt-3 rounded-md border border-line bg-paper px-6 py-5 text-lg font-bold leading-7 text-ink">
             OEMO structure map: objects are connected by invariants, relations, algorithms, and applications.

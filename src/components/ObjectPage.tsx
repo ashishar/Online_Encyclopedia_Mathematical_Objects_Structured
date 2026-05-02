@@ -1,6 +1,7 @@
-import Image from "next/image";
 import { BlockMath } from "react-katex";
 import type { OEMOObject, OEMOLink, OEMOVisual } from "@/lib/objects";
+
+const basePath = "/Online_Encyclopedia_Mathematical_Objects_Structured";
 
 export function ObjectPage({ object }: { object: OEMOObject }) {
   return (
@@ -106,7 +107,7 @@ function VisualCard({ visual }: { visual: OEMOVisual }) {
   return (
     <figure className="overflow-hidden rounded-lg border border-line bg-paper">
       {visual.image_url ? (
-        <Image src={visual.image_url} alt={visual.caption} width={1200} height={720} className="h-auto w-full bg-white" />
+        <img src={assetPath(visual.image_url)} alt={visual.caption} width={1200} height={720} className="h-auto w-full bg-white" />
       ) : (
         <div className="grid min-h-72 place-items-center bg-white p-6">
           <div className="w-full max-w-2xl rounded-lg border border-dashed border-ocean/50 bg-paper p-6 text-center">
@@ -126,6 +127,12 @@ function VisualCard({ visual }: { visual: OEMOVisual }) {
       <figcaption className="border-t border-line px-4 py-3 text-sm font-bold text-muted">{visual.description}</figcaption>
     </figure>
   );
+}
+
+function assetPath(src: string) {
+  if (src.startsWith("http://") || src.startsWith("https://")) return src;
+  if (src.startsWith(basePath)) return src;
+  return `${basePath}${src.startsWith("/") ? src : `/${src}`}`;
 }
 
 function PillList({ items }: { items: string[] }) {

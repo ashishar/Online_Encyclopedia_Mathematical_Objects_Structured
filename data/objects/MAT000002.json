@@ -22,7 +22,7 @@
     {
       "type": "phase_heatmap",
       "description": "A Fourier matrix can be visualized as a grid of phases. Each cell corresponds to a complex number on the unit circle, and color represents the phase angle. The repeated diagonal and checker patterns reveal how the matrix organizes frequency interactions.",
-      "image_url": "",
+      "image_url": "/visuals/fourier-matrix-phase.svg",
       "caption": "Phase heatmap representation of a Fourier matrix.",
       "query": [
         "Fourier matrix complex phase heatmap colorful visualization",

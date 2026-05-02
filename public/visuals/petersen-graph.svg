@@ -1,0 +1,24 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Petersen graph drawing</title>
+  <desc id="desc">The Petersen graph drawn as an outer pentagon, inner star, and five spokes.</desc>
+  <rect width="1200" height="720" fill="#FFFFFF"/>
+  <path d="M120 120H1080M120 240H1080M120 360H1080M120 480H1080M120 600H1080M240 80V640M480 80V640M720 80V640M960 80V640" stroke="#DBE7F3"/>
+  <g stroke="#111827" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M600 105L843 281L750 566L450 566L357 281Z"/>
+    <path d="M600 252L690 531L452 359L748 359L510 531Z"/>
+    <path d="M600 105L600 252M843 281L748 359M750 566L690 531M450 566L510 531M357 281L452 359"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" text-anchor="middle" font-size="22" font-weight="850">
+    <g fill="#1D4ED8"><circle cx="600" cy="105" r="34"/><text x="600" y="113" fill="#FFFFFF">0</text></g>
+    <g fill="#1D4ED8"><circle cx="843" cy="281" r="34"/><text x="843" y="289" fill="#FFFFFF">1</text></g>
+    <g fill="#1D4ED8"><circle cx="750" cy="566" r="34"/><text x="750" y="574" fill="#FFFFFF">2</text></g>
+    <g fill="#1D4ED8"><circle cx="450" cy="566" r="34"/><text x="450" y="574" fill="#FFFFFF">3</text></g>
+    <g fill="#1D4ED8"><circle cx="357" cy="281" r="34"/><text x="357" y="289" fill="#FFFFFF">4</text></g>
+    <g fill="#0F766E"><circle cx="600" cy="252" r="34"/><text x="600" y="260" fill="#FFFFFF">5</text></g>
+    <g fill="#0F766E"><circle cx="748" cy="359" r="34"/><text x="748" y="367" fill="#FFFFFF">6</text></g>
+    <g fill="#0F766E"><circle cx="690" cy="531" r="34"/><text x="690" y="539" fill="#FFFFFF">7</text></g>
+    <g fill="#0F766E"><circle cx="510" cy="531" r="34"/><text x="510" y="539" fill="#FFFFFF">8</text></g>
+    <g fill="#0F766E"><circle cx="452" cy="359" r="34"/><text x="452" y="367" fill="#FFFFFF">9</text></g>
+  </g>
+  <text x="600" y="670" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#111827">Outer pentagon, inner star, and spokes make every vertex degree 3.</text>
+</svg>

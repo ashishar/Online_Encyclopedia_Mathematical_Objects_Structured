@@ -22,7 +22,7 @@
     {
       "type": "graph_drawing",
       "description": "The standard drawing shows an outer pentagon, an inner star, and five spokes joining corresponding outer and inner vertices. This layout makes the 3-regular structure visible because every vertex has two neighbors in a pentagon or star pattern and one spoke neighbor.",
-      "image_url": "",
+      "image_url": "/visuals/petersen-graph.svg",
       "caption": "Standard drawing of the Petersen graph with outer pentagon, inner star, and spokes.",
       "query": [
         "Petersen graph outer pentagon inner star labeled clean",
