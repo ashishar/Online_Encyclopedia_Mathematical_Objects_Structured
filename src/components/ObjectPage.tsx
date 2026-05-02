@@ -27,7 +27,7 @@ export function ObjectPage({ object }: { object: OEMOObject }) {
         </header>
 
         <div className="grid gap-8 px-6 py-7">
-          <TextSection title="Definition" body={object.definition} />
+          <TextBlock body={object.definition} />
 
           <section>
             <SectionTitle>Defining Equations</SectionTitle>
@@ -52,11 +52,11 @@ export function ObjectPage({ object }: { object: OEMOObject }) {
             </div>
           </section>
 
-          <TextSection title="Origin and Historical Context" body={object.origin_history} />
-          <TextSection title="Importance and Applications" body={object.importance} />
-          <TextSection title="Research Trends" body={object.research_trends} />
-          <TextSection title="Intuition" body={object.intuition} />
-          <TextSection title="Minimal Working Example" body={object.minimal_example} />
+          <TextBlock body={object.origin_history} />
+          <TextBlock body={object.importance} />
+          <TextBlock body={object.research_trends} />
+          <TextBlock body={object.intuition} />
+          <TextBlock body={object.minimal_example} />
 
           <section>
             <SectionTitle>Code Snippet</SectionTitle>
@@ -96,12 +96,15 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   return <h2 className="text-sm font-black uppercase tracking-[0.12em] text-ink">{children}</h2>;
 }
 
-function TextSection({ title, body }: { title: string; body: string }) {
+function TextBlock({ body }: { body: string }) {
+  const paragraphs = body.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
+
   return (
-    <section>
-      <SectionTitle>{title}</SectionTitle>
-      <p className="mt-3 leading-8 text-muted">{body}</p>
-    </section>
+    <div className="grid gap-4">
+      {paragraphs.map((paragraph) => (
+        <p key={paragraph} className="leading-8 text-muted">{paragraph}</p>
+      ))}
+    </div>
   );
 }
 
