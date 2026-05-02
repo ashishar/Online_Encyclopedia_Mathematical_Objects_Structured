@@ -31,11 +31,11 @@ export function ObjectPage({ object }: { object: OEMOObject }) {
 
           <div className="grid gap-4">
             {object.defining_equations.map((equation) => (
-              <div key={equation.latex} className="rounded-lg border border-line bg-paper p-4">
-                <div className="overflow-x-auto rounded-md bg-white p-4">
+              <div key={equation.latex}>
+                <div className="overflow-x-auto">
                   <BlockMath math={equation.latex} />
                 </div>
-                <p className="mt-3 leading-7 text-muted">{equation.explanation}</p>
+                <p className="leading-7 text-muted">{equation.explanation}</p>
               </div>
             ))}
           </div>
@@ -63,11 +63,14 @@ export function ObjectPage({ object }: { object: OEMOObject }) {
 
           <section>
             <SectionTitle>Connections</SectionTitle>
-            <div className="mt-4 grid gap-3 md:grid-cols-2">
-              {object.connections.map((connection) => (
-                <div key={`${connection.to}-${connection.type}`} className="rounded-lg border border-line bg-paper p-4">
-                  <p className="font-black text-ink">{connection.to}</p>
-                  <p className="mt-1 text-sm font-bold text-ocean">{connection.type.replaceAll("_", " ")}</p>
+            <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 leading-8">
+              {object.connections.map((connection, index) => (
+                <div key={`${connection.to}-${connection.type}`} className="flex items-center gap-3">
+                  {index > 0 ? <span className="font-black text-ocean" aria-hidden="true">-&gt;</span> : null}
+                  <span className="font-black text-ink">{connection.to}</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.1em] text-muted">
+                    {connection.type.replaceAll("_", " ")}
+                  </span>
                 </div>
               ))}
             </div>
@@ -143,20 +146,34 @@ function LinkSection({ title, items }: { title: string; items: OEMOLink[] }) {
   return (
     <section>
       <SectionTitle>{title}</SectionTitle>
-      <ul className="mt-4 grid gap-3">
+      <ul className="mt-4 grid gap-2">
         {items.map((item) => (
-          <li key={`${title}-${item.title}`} className="rounded-lg border border-line bg-paper p-4">
-            <p className="text-xs font-black uppercase tracking-[0.12em] text-ocean">{item.type}</p>
+          <li key={`${title}-${item.title}`} className="flex flex-wrap items-center gap-2 text-sm leading-7">
+            <span aria-hidden="true" className="inline-flex min-w-8 justify-center font-black text-ocean">
+              {sourceIcon(item)}
+            </span>
             {item.url ? (
-              <a href={item.url} className="mt-1 block font-black text-ink hover:text-ocean hover:underline">
+              <a href={item.url} className="font-bold text-ink hover:text-ocean hover:underline">
                 {item.title}
               </a>
             ) : (
-              <p className="mt-1 font-black text-ink">{item.title}</p>
+              <span className="font-bold text-ink">{item.title}</span>
             )}
+            <span className="text-xs font-bold uppercase tracking-[0.1em] text-muted">{item.type}</span>
           </li>
         ))}
       </ul>
     </section>
   );
+}
+
+function sourceIcon(item: OEMOLink) {
+  const haystack = `${item.type} ${item.title} ${item.url ?? ""}`.toLowerCase();
+  if (haystack.includes("youtube") || haystack.includes("video")) return "YT";
+  if (haystack.includes("github") || haystack.includes("code")) return "GH";
+  if (haystack.includes("arxiv")) return "arXiv";
+  if (haystack.includes("book")) return "BK";
+  if (haystack.includes("wikipedia") || haystack.includes("mathworld") || haystack.includes("web")) return "WEB";
+  if (haystack.includes("paper")) return "PDF";
+  return "REF";
 }
