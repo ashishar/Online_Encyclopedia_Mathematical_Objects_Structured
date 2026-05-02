@@ -10,7 +10,7 @@ export default async function HomePage() {
 
   return (
     <main>
-      <section className="mx-auto grid max-w-[1660px] items-center gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[minmax(0,0.85fr)_700px] lg:px-8 xl:grid-cols-[minmax(0,0.8fr)_780px]">
+      <section className="mx-auto grid max-w-[1660px] items-center gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[minmax(0,0.88fr)_680px] lg:px-8 xl:grid-cols-[minmax(0,0.82fr)_760px]">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-black uppercase tracking-[0.14em] text-ocean">Online encyclopedia</p>
           <h1 className="mt-4 max-w-3xl text-5xl font-black leading-[0.96] tracking-normal text-ink sm:text-6xl lg:text-7xl">
@@ -26,16 +26,16 @@ export default async function HomePage() {
           </div>
         </div>
 
-        <figure className="overflow-hidden rounded-lg border border-line bg-white shadow-panel">
+        <figure className="rounded-lg border border-line bg-white p-3 shadow-panel">
           <Image
             src="/structure-map.svg"
             alt="Network diagram connecting major mathematical object families"
-            width={1560}
-            height={936}
-            className="h-auto w-full"
+            width={1400}
+            height={900}
+            className="aspect-[14/9] h-auto w-full rounded-md object-contain"
             priority
           />
-          <figcaption className="border-t border-line bg-paper px-6 py-5 text-lg font-bold leading-7 text-ink">
+          <figcaption className="mt-3 rounded-md border border-line bg-paper px-6 py-5 text-lg font-bold leading-7 text-ink">
             OEMO structure map: objects are connected by invariants, relations, algorithms, and applications.
           </figcaption>
         </figure>

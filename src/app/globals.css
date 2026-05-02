@@ -14,12 +14,13 @@ html {
 
 body {
   background:
-    linear-gradient(90deg, rgba(20, 111, 107, 0.06) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(49, 95, 184, 0.05) 1px, transparent 1px),
-    #f6f7f1;
-  background-size: 42px 42px;
+    radial-gradient(circle at 18px 18px, rgba(29, 78, 216, 0.07) 1.4px, transparent 1.5px),
+    linear-gradient(90deg, rgba(15, 118, 110, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(29, 78, 216, 0.04) 1px, transparent 1px),
+    #ffffff;
+  background-size: 36px 36px, 36px 36px, 36px 36px;
 }
 
 ::selection {
-  background: #d8ede9;
+  background: #dbeafe;
 }
