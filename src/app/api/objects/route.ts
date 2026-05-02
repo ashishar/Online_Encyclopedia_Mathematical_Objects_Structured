@@ -1,18 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getObjects } from "@/lib/objects";
-import { enrichObject } from "@/lib/enrichment";
 import { createSupabaseServerClient, hasSupabaseEnv } from "@/lib/supabase/server";
-import { OBJECT_TYPES } from "@/lib/types";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const type = searchParams.get("type");
+  const type = searchParams.get("type") ?? undefined;
   const q = searchParams.get("q") ?? undefined;
-  const status = searchParams.get("status") ?? undefined;
   const limit = Number(searchParams.get("limit") ?? "0") || undefined;
-  const safeType = OBJECT_TYPES.find((item) => item === type);
 
-  const objects = (await getObjects({ type: safeType, query: q, status, limit })).map(enrichObject);
+  const objects = await getObjects({ type, query: q, limit });
   return NextResponse.json({ objects });
 }
 

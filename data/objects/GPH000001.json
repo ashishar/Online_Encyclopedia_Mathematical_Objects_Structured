@@ -1,0 +1,55 @@
+{
+  "object_code": "GPH000001",
+  "name": "Petersen Graph",
+  "notation": ["P", "KG(5,2)"],
+  "type": "graph",
+  "definition": "The Petersen graph is a 10-vertex, 15-edge, 3-regular graph with high symmetry and nontrivial structural properties.",
+  "defining_equations": [
+    {
+      "latex": "P = KG(5,2)",
+      "explanation": "KG(5,2) is the Kneser graph where vertices are 2-element subsets of a 5-element set and edges connect disjoint subsets."
+    },
+    {
+      "latex": "A_{ij} = 1 \\text{ if vertices } i \\text{ and } j \\text{ are adjacent}",
+      "explanation": "A_ij is an adjacency matrix entry. It equals 1 when two vertices are connected by an edge and 0 otherwise."
+    }
+  ],
+  "visuals": [
+    {
+      "type": "graph_drawing",
+      "description": "The standard Petersen graph drawing uses an outer pentagon, an inner star, and five connecting spokes. Each vertex has degree 3, which makes the regularity visible.",
+      "image_url": "",
+      "caption": "Standard drawing of the Petersen graph.",
+      "query": ["Petersen graph outer pentagon inner star labeled clean", "Petersen graph 10 vertices symmetric diagram"]
+    }
+  ],
+  "origin_history": "The Petersen graph was introduced in 1898 by Julius Petersen and became a central example in graph theory due to its counterintuitive properties and role as a counterexample.",
+  "importance": "The Petersen graph is a canonical counterexample used to test graph theory results. It is fundamental in studying connectivity, coloring, regularity, and structure. It is also used in network design, graph algorithm validation, and graph neural network benchmarking.",
+  "research_trends": "The Petersen graph is widely used in graph neural network research to test model expressivity and the limits of message-passing architectures. It is also important in spectral graph theory, where eigenvalues and invariants are studied for graph embeddings and machine learning applications.",
+  "intuition": "The Petersen graph is a small but complex graph that behaves unexpectedly, making it ideal for testing graph theory concepts.",
+  "minimal_example": "The Petersen graph has 10 vertices, 15 edges, and each vertex has degree 3.",
+  "code_snippet": {
+    "language": "python",
+    "code": "vertices = list(range(10))\nedges = [(0,1),(1,2),(2,3),(3,4),(4,0),(5,7),(7,9),(9,6),(6,8),(8,5),(0,5),(1,6),(2,7),(3,8),(4,9)]\ndegrees = {v: 0 for v in vertices}\nfor a, b in edges:\n    degrees[a] += 1\n    degrees[b] += 1\nprint(len(vertices))\nprint(len(edges))\nprint(degrees)"
+  },
+  "connections": [
+    { "to": "Kneser Graph", "type": "representation" },
+    { "to": "Cubic Graph", "type": "belongs_to" },
+    { "to": "Snark", "type": "related_to" },
+    { "to": "Graph Neural Networks", "type": "used_in" }
+  ],
+  "variants": ["Generalized Petersen graphs", "Kneser graphs", "Cubic graphs", "Snarks"],
+  "core_properties": ["10 vertices", "15 edges", "3-regular", "Non-Hamiltonian", "Girth 5", "Diameter 2"],
+  "level": "Intermediate",
+  "tags": ["graph theory", "Petersen graph", "Kneser graph", "regular graph", "GNN", "spectral graph"],
+  "citations": [
+    { "type": "web", "icon": "web", "title": "Petersen Graph, Wolfram MathWorld", "url": "https://mathworld.wolfram.com/PetersenGraph.html" },
+    { "type": "web", "icon": "web", "title": "Petersen Graph, Wikipedia", "url": "https://en.wikipedia.org/wiki/Petersen_graph" },
+    { "type": "book", "icon": "book", "title": "Graph Theory by Reinhard Diestel" }
+  ],
+  "resources": [
+    { "type": "video", "icon": "video", "title": "Graph theory introduction", "url": "https://www.youtube.com/watch?v=09_LlHjoEiY" },
+    { "type": "paper", "icon": "paper", "title": "Spectral graph theory notes", "url": "https://arxiv.org/abs/1211.0053" },
+    { "type": "code", "icon": "code", "title": "NetworkX GitHub repository", "url": "https://github.com/networkx/networkx" }
+  ]
+}

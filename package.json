@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "validate:objects": "ajv validate -s schema/oemo-object.schema.json -d \"data/objects/*.json\"",
+    "check:content": "node scripts/check-content.js",
+    "check:snippets": "python scripts/check_snippets.py",
     "db:seed": "tsx scripts/seed-supabase.ts"
   },
   "dependencies": {
@@ -16,9 +19,11 @@
     "katex": "^0.16.11",
     "next": "^14.2.15",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-katex": "^3.1.0"
   },
   "devDependencies": {
+    "ajv-cli": "^5.0.0",
     "@types/katex": "^0.16.7",
     "@types/node": "^20.16.10",
     "@types/react": "^18.3.11",
