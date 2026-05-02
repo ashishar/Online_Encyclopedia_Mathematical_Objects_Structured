@@ -1,7 +1,11 @@
 import { notFound } from "next/navigation";
 import { BackButton } from "@/components/back-button";
 import { ObjectPage as ObjectPageContent } from "@/components/ObjectPage";
-import { getObjectByCode } from "@/lib/objects";
+import { getObjectByCode, getObjectCodes } from "@/lib/objects";
+
+export function generateStaticParams() {
+  return getObjectCodes().map((object_code) => ({ object_code }));
+}
 
 export default async function ObjectPage({ params }: { params: { object_code: string } }) {
   const object = await getObjectByCode(params.object_code);

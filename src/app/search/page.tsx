@@ -3,9 +3,8 @@ import { SearchBox } from "@/components/search-box";
 import { BackButton } from "@/components/back-button";
 import { getObjects } from "@/lib/objects";
 
-export default async function SearchPage({ searchParams }: { searchParams: { q?: string } }) {
-  const q = searchParams.q ?? "";
-  const objects = await getObjects({ query: q || undefined });
+export default async function SearchPage() {
+  const objects = await getObjects();
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -15,7 +14,7 @@ export default async function SearchPage({ searchParams }: { searchParams: { q?:
         <h1 className="mt-3 text-4xl font-black text-ink">Find objects by name, code, property, relation, or notation.</h1>
       </div>
       <div className="mt-7 max-w-4xl">
-        <SearchBox initialQuery={q} />
+        <SearchBox />
       </div>
       <div className="mt-8 flex items-center justify-between border-b border-line pb-4">
         <p className="text-sm font-bold text-muted">{objects.length} result{objects.length === 1 ? "" : "s"}</p>

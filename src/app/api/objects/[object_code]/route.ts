@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getObjectByCode } from "@/lib/objects";
+import { getObjectByCode, getObjectCodes } from "@/lib/objects";
+
+export function generateStaticParams() {
+  return getObjectCodes().map((object_code) => ({ object_code }));
+}
 
 export async function GET(_: NextRequest, { params }: { params: { object_code: string } }) {
   const object = await getObjectByCode(params.object_code);

@@ -100,6 +100,10 @@ export function getObjectTypes() {
   return Array.from(new Set(readObjects().map((object) => object.type))).sort();
 }
 
+export function getObjectCodes() {
+  return readObjects().map((object) => object.object_code);
+}
+
 function readObjects(): OEMOObject[] {
   if (!fs.existsSync(objectDirectory)) return [];
 

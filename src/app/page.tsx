@@ -67,7 +67,7 @@ export default async function HomePage() {
       <section className="border-y border-line bg-white/70 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
           {[
-            ["Object-first", "Every entry has a canonical object code, notation, definition, properties, relations, examples, code, references, and verification status."],
+            ["Object-first", "Every entry has a canonical object code, notation, definition, equations, visuals, examples, code, citations, and resources."],
             ["Computable", "Copyable snippets for SageMath, GAP, Python, and numerical libraries sit beside the mathematical definition."],
             ["Cross-linked", "Relations are first-class: objects can point to transforms, distributions, matrices, groups, graphs, and algorithms."]
           ].map(([title, body]) => (

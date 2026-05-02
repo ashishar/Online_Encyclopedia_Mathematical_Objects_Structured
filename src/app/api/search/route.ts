@@ -1,14 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { getObjects } from "@/lib/objects";
 
-export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const q = searchParams.get("q") ?? undefined;
-  const limit = Number(searchParams.get("limit") ?? "50") || 50;
-  const objects = await getObjects({ query: q, limit });
+export async function GET() {
+  const objects = await getObjects();
 
   return NextResponse.json({
-    query: q ?? "",
+    query: "",
     count: objects.length,
     objects
   });
